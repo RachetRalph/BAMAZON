@@ -31,7 +31,7 @@ connection.query('SELECT ITEM_ID, PRODUCT_NAME, DEPARTMENT_NAME, PRICE, STOCK_QT
         style: {
             head: ['yellow'],
             compact: false,
-            colAligns: ['center'],
+            colAligns: ['left'],
         }
     });
 
@@ -43,5 +43,22 @@ connection.query('SELECT ITEM_ID, PRODUCT_NAME, DEPARTMENT_NAME, PRICE, STOCK_QT
     }
     console.log(table.toString());
 
-    // purchase();
+    buy();
 });
+
+// Create a buy function, so the user can purchase one of the items listed in the table
+const buy = () => {
+    // The user is promted for a request 
+    let products = {
+        properties: {
+            ITEM_ID: { description: colors.bgGreen('Please enter the ID # of the item you wish to purchase!')},
+            STOCK_QT: { description: colors.blue('How many items would you like to purchase?')},
+        },
+    };
+
+    prompt.start();
+
+    
+
+
+}
