@@ -1,10 +1,10 @@
-var mysql = require("mysql");
-var Table = require('cli-table');
-var colors = require('colors');
-var prompt = require('prompt');
+const mysql = require("mysql");
+const Table = require('cli-table');
+const colors = require('colors');
+const prompt = require('prompt');
 
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     // Your username   
@@ -18,7 +18,7 @@ connection.connect(function (err) {
     if (err) throw err;
     //  productSearch(); 
 });
-// Empty array of customers purchases 
+// Empty array to hold customers purchases 
 var purchases = [];
 
 //Query to the mysql database and pull the information from the Products table. 
@@ -26,7 +26,7 @@ connection.query('SELECT ITEM_ID, PRODUCT_NAME, DEPARTMENT_NAME, PRICE, STOCK_QT
     if (err) console.log(err);
 
     //creates a table for the information from the mysql database to be placed
-    var table = new Table({
+    let table = new Table({
         head: ['Item Id#', 'Product Name', 'Department Name', 'Price', 'Quanitity'],
         style: {
             head: ['yellow'],
@@ -36,7 +36,7 @@ connection.query('SELECT ITEM_ID, PRODUCT_NAME, DEPARTMENT_NAME, PRICE, STOCK_QT
     });
 
     //loops through each item in the mysqlDB and pushes that information into a new row in the table
-    for (var i = 0; i < result.length; i++) {
+    for (let i = 0; i < result.length; i++) {
         table.push(
             [result[i].ITEM_ID, result[i].PRODUCT_NAME, result[i].DEPARTMENT_NAME, result[i].PRICE, result[i].STOCK_QT]
         );
@@ -86,13 +86,15 @@ const buy = () => {
             } else if (res[0].STOCK_QT >= purchases[0].STOCK_QT) {
 
                 console.log('');
-
-                console.log(purchases[0].STOCK_QT + ' items purchased');
-
-                console.log(res[0].PRODUCT_NAME, + ' ' + res[0].PRICE + " / Each");
+                console.log("Quantity: " + purchases[0].STOCK_QT);
+                console.log('');
+                console.log("Product: " + res[0].PRODUCT_NAME);
+                console.log('');
+                console.log("Price: " + res[0].PRICE);
 
                 //this creates the variable SaleTotal that contains the total amount the user is paying for this total puchase
                 let saleTotal = res[0].PRICE * purchases[0].STOCK_QT;
+                console.log('');
 
                 console.log('Total: ' + saleTotal);
 
@@ -101,10 +103,8 @@ const buy = () => {
 
                 // connects to the mysql database products and updates the stock quantity for the item puchased
                 connection.query("UPDATE PRODUCTS SET STOCK_QT = " + newQty + " WHERE ITEM_ID = " + purchases[0].ITEM_ID, function (err, res) {
-                    // if(err) throw err;
-                    // console.log('Problem ', err);
                     console.log('');
-                    console.log(colors.cyan('Your order has been processed.  Thank you for shopping with us!'));
+                    console.log(colors.cyan('KHACHING! ') + colors.blue('Your order has been processed. Thank you for shopping with us!'));
                     console.log('');
 
                     connection.end();
