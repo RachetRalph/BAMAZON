@@ -2,6 +2,7 @@
 Bamazon is an application, powered by; 
 - MySQL
 - Node.js
+
 BAMAZON is a simple command line application that takes prompts from the user.
 
 # USAGE
