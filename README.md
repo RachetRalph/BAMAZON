@@ -1,16 +1,16 @@
 # BAMAZON
 
 
-#USAGE
-###The **BAMAZON** app uses the CLI.
+# USAGE
+#### The **BAMAZON** app uses the CLI
 
-- User can initialize the application via the follwing code.
+User can initialize the application typing node bamazoncustomer.js via the command line
+
 ```
-rach3tralph@Rach3tMBP:~/FullStack Learning Resources/UA_Bootcamp/week_15/HW/BAMAZON
 master ✔ $ node bamazoncustomer.js
 
 ```
 
-#APP DEMO 
+# APP DEMO 
 
-[![asciicast](https://asciinema.org/a/WtsVS1sn49GW9UmqKuZvHmEsE.png)](https://asciinema.org/a/WtsVS1sn49GW9UmqKuZvHmEsE)
+![Alt Text](https://media.giphy.com/media/26DNfRzQ8aHR6Klzy/giphy.gif)
