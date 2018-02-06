@@ -20,6 +20,18 @@ prompt: How many items would you like to purchase?:  5
 ```
 The application then summarizes the order deatils & outputs the order total. 
 
+```
+
+Quantity: 5
+
+Product: SEA FOAM MOTO TREATMENT
+
+Price: 11.95
+
+Total: 59.75
+
+KHACHING! Your order has been processed. Thank you for shopping with us!
+```
 # APP DEMO 
 
 ![Alt Text](https://media.giphy.com/media/26DNfRzQ8aHR6Klzy/giphy.gif)
